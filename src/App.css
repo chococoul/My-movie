@@ -43,6 +43,11 @@ form {
 
 .movieTitle{
   margin-top: 20px;
+  border: 1px solid pink;
+  border-radius: 6px;
+  border-color: aqua;
+  background-color: pink;
+
 }
 
 .movieImg{

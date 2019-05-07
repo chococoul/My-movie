@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 import axios from 'axios';
 
@@ -19,9 +19,9 @@ class App extends Component {
     event.preventDefault();
     var query = this.input.value;
     console.log(query);
-    this.componentDidMount(query);
+    this.Search(query);
   }
-  componentDidMount(query){
+  Search(query){
     var api = 'https://api.themoviedb.org/3/search/movie?api_key=fd2d559910ab300bcbe0071a4dfe70e8&query='
     axios.get(api + query)
       .then(response => 
@@ -32,17 +32,17 @@ class App extends Component {
   render() {
     const {movies} = this.state;
     var movieList = movies.map((movie) => 
-    <div className="col-4 movie">  
-      <img src={imgUrl + movie.poster_path}className="movieImg" />
+      <div className="col-4 movie">  
+      <img src={imgUrl + movie.poster_path}className="movieImg" alt="" />
       <p className="overview">{movie.overview}</p>
       <h3  key={movie.id}className="text-center movieTitle">{movie.title}</h3>
-    </div>)
+      </div>)
     return (
       <div className="App">
         <div className="jumbotron">  
             <div className="container">
             <div className="row">
-            <h2 className="col-12 text-center">Search for a Movie</h2>
+            <h2 className="col-12 text-center">Search your favorite Movie</h2><br></br>
               <form onSubmit={this.onSubmit} className="col-12">
                 <input className= "col-12 form-control" placeholder="Search Movies..."
                 ref = {input => this.input = input}/>
